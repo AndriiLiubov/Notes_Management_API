@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from src.routes import notes
+from src.routes import notes, analytics
 
 app = FastAPI()
 
 app.include_router(notes.router)
+app.include_router(analytics.router)
 
 
 @app.get("/")

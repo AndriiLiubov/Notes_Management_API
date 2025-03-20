@@ -30,7 +30,7 @@ def update_note(db: Session, note_id: int, note_data: NoteModel):
     if not note:
         raise HTTPException(status_code=404, detail="Note not found")
 
-    # Сохранение старой версии
+    # Save old version
     version = NoteVersion(
         note_id=note.id,
         title=note.title,
@@ -39,7 +39,7 @@ def update_note(db: Session, note_id: int, note_data: NoteModel):
     )
     db.add(version)
 
-    # Обновление заметки
+    # Note update
     note.title = note_data.title
     note.content = note_data.content
     note.updated_at = datetime.now()
