@@ -11,4 +11,3 @@ app.include_router(analytics.router)
 def root():
     return {"message": "Welcome to Notes Manager"}
 
-# uvicorn main:app --host localhost --port 8000 --reload

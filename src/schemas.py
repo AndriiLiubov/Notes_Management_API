@@ -8,11 +8,13 @@ class NoteModel(BaseModel):
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
 
+
 class NoteResponse(NoteModel):
     id: int
 
     class Config:
         orm_mode = True
+
 
 class NoteVersionResponse(BaseModel):
     id: int
